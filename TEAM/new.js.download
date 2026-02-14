@@ -1,0 +1,114 @@
+// Initializing Typed.js
+if (document.querySelector(".typing")) {
+    var typing = new Typed(".typing", {
+        strings: ["مطور ويب", "مصمم واجهات", "مهندس برمجيات", "محلل نظم"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
+}
+
+// Sticky Navbar & Scroll to Top
+const navbar = document.querySelector(".navbar");
+const scrollBtn = document.querySelector(".scrollbtn");
+
+window.onscroll = function() {
+    if (document.documentElement.scrollTop > 20) {
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
+    }
+
+    if (document.documentElement.scrollTop > 500) {
+        if (scrollBtn) scrollBtn.style.display = "block";
+    } else {
+        if (scrollBtn) scrollBtn.style.display = "none";
+    }
+};
+
+// Scroll to Top Function
+if (scrollBtn) {
+    scrollBtn.addEventListener("click", () => {
+        document.documentElement.scrollTop = 0;
+    });
+}
+
+// Mobile Menu Toggle
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+    });
+}
+
+// Chat Widget Toggle
+function toggleChat() {
+    const chatWindow = document.getElementById('chat-window');
+    if (chatWindow) {
+        chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'flex' : 'none';
+    }
+}
+
+function closeChat() {
+    const chatWindow = document.getElementById('chat-window');
+    if (chatWindow) {
+        chatWindow.style.display = 'none';
+    }
+}
+
+// Chat Functionality
+function sendResponse(response) {
+    const chatBody = document.querySelector('.chat-body');
+    if (!chatBody) return;
+
+    // User Message (Hidden for now, or we can add it)
+    
+    // Bot Message
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('chat-message', 'bot-message');
+    messageDiv.style.background = "#e5e7eb";
+    messageDiv.style.padding = "10px";
+    messageDiv.style.borderRadius = "8px";
+    messageDiv.style.margin = "5px 0";
+    messageDiv.style.color = "#333";
+    
+    chatBody.appendChild(messageDiv);
+    
+    typeMessage(messageDiv, response);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function typeMessage(element, message, index = 0) {
+    if (index < message.length) {
+        element.textContent += message[index];
+        index++;
+        setTimeout(() => typeMessage(element, message, index), 30);
+    }
+}
+
+function clearChat() {
+    const chatBody = document.querySelector('.chat-body');
+    if (chatBody) {
+        chatBody.innerHTML = '';
+    }
+}
+
+// FAQ Toggle
+const faqQuestions = document.querySelectorAll(".faq-question");
+faqQuestions.forEach(question => {
+    question.addEventListener("click", () => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector("i");
+        
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            if(icon) icon.classList.replace("fa-minus", "fa-plus");
+        } else {
+            answer.style.display = "block";
+            if(icon) icon.classList.replace("fa-plus", "fa-minus");
+        }
+    });
+});
