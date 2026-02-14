@@ -1,0 +1,176 @@
+/* ====== Reset & Base ====== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 70% -10%, #1b2741 0%, #0a0f1f 45%, #060913 100%);
+  color: #e6eeff;
+  font-family: 'Cairo', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  overflow: hidden; /* emphasize the scene */
+}
+
+/* ====== Particles Canvas ====== */
+#particles {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+/* ====== Layout ====== */
+.wrap {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 1.25rem;
+  padding: 5vh 4vw 8vh;
+  text-align: center;
+}
+
+/* ====== 404 Code ====== */
+.code {
+  margin: 0;
+  position: relative; /* allow absolute child */
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(4rem, 14vw, 18rem);
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #7afcff 0%, #fe53bb 50%, #00f5d4 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 8px 30px rgba(0, 255, 204, 0.25));
+  animation: hue 10s linear infinite;
+}
+
+@keyframes hue { to { filter: hue-rotate(360deg) drop-shadow(0 8px 30px rgba(0, 255, 204, 0.25)); } }
+
+/* ====== Names Section ====== */
+.names { display: grid; gap: .5rem; }
+.name {
+  font-weight: 1000;
+  line-height: 1.15;
+  font-size: clamp(1.4rem, 5.5vw, 4rem);
+  letter-spacing: .02em;
+}
+
+/* Glitch Effect for Team Mohaned */
+.glitch {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #e6eeff;
+  text-shadow: 0 0 6px rgba(0, 255, 255, .25);
+  animation: glitch-shake 2.4s infinite ease-in-out alternate;
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  mix-blend-mode: screen;
+}
+.glitch::before {
+  color: #00f5d4; /* teal */
+  transform: translate(-2px, -1px);
+  clip-path: polygon(0 2%, 100% 2%, 100% 44%, 0 44%);
+}
+.glitch::after {
+  color: #fe53bb; /* magenta */
+  transform: translate(2px, 1px);
+  clip-path: polygon(0 56%, 100% 56%, 100% 100%, 0 100%);
+}
+@keyframes glitch-shake {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(1deg); }
+  40% { transform: skew(-1.5deg); }
+  60% { transform: skew(.7deg); }
+  80% { transform: skew(-.7deg); }
+  100% { transform: skew(0deg); }
+}
+
+/* Neon Effect for Final View - tuned to background */
+.neon {
+  text-transform: uppercase;
+  /* ألوان مائلة للأزرق/تركواز مع توهج بنفسجي خفيف لتناسب الخلفية الداكنة */
+  background: linear-gradient(90deg, #76e4ff 0%, #00f5d4 40%, #7afcff 70%, #a47cff 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 4px rgba(118, 228, 255, .4),
+    0 0 10px rgba(0, 245, 212, .35),
+    0 0 22px rgba(122, 252, 255, .45),
+    0 0 46px rgba(164, 124, 255, .28);
+  animation: neon-pulse 1.8s ease-in-out infinite, hue-rotate 12s linear infinite;
+}
+@keyframes neon-pulse {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.25) saturate(1.15); }
+}
+@keyframes hue-rotate { to { filter: hue-rotate(12deg); } }
+
+/* ====== Subtitle & Button ====== */
+.subtitle {
+  margin: .25rem 0 .5rem;
+  color: #b7c7ff;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+/* One-time typewriter under 404 (aligned to center 0) */
+.notfound {
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: -1.4rem; /* sits just below the digits */
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(.8rem, 2.2vw, 1rem);
+  letter-spacing: .12em;
+  color: #9ecbff;
+  opacity: 0.95;
+  /* typing effect */
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid rgba(158, 203, 255, 0.9);
+  animation: typing 1.6s steps(9, end) 0.4s forwards, caret 600ms steps(1) 2 both;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 9ch; }
+}
+@keyframes caret {
+  0%, 100% { border-right-color: rgba(158, 203, 255, 0.0); }
+  50% { border-right-color: rgba(158, 203, 255, 0.9); }
+}
+
+.btn {
+  display: inline-block;
+  margin-top: .5rem;
+  padding: .8rem 1.25rem;
+  color: #001018;
+  background: linear-gradient(90deg, #00f5d4, #7afcff);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 10px 30px rgba(0, 245, 212, .25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 245, 212, .35);
+}
+
+/* ====== Footer ====== */
+.credit {
+  position: fixed;
+  inset-inline: 0; bottom: 10px;
+  text-align: center;
+  color: #8aa0d6;
+  font-size: .85rem;
+  letter-spacing: .02em;
+  z-index: 1;
+  opacity: .8;
+}
+
+/* ====== Responsive Tweaks ====== */
+@media (max-width: 420px) {
+  .subtitle { font-size: .95rem; }
+  .btn { padding: .7rem 1rem; }
+}
