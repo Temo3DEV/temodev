@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="عروض Temo3Dev الخاصة">
+  <title>العروض | Temo3Dev</title>
+
+  <link rel="stylesheet" href="../TEAM/new.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .offer-header {
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .countdown {
+      font-family: monospace;
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      display: inline-block;
+      border: 1px solid var(--primary-color);
+      direction: ltr;
+      /* Keep numbers LTR */
+    }
+
+    .price-tag {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      margin-left: 10px;
+      /* Adjusted margin for RTL */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">Temo3<span>Dev</span></a>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">الرئيسية</a></li>
+        <li><a href="../index.html#services" class="nav-link">خدماتنا</a></li>
+        <li><a href="Projects.html" class="nav-link">المشاريع</a></li>
+        <li><a href="#" class="nav-link active">العروض</a></li>
+        <li><a href="../index.html#contact" class="nav-link">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="hero"
+    style="height: 40vh; min-height: 300px; background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('../assets/images/bg-offers.jpg') center/cover;">
+    <div class="container hero-content">
+      <h1>عروض خاصة</h1>
+      <p>صفقات محدودة الوقت على دوراتنا وخدماتنا.</p>
+    </div>
+  </section>
+
+  <!-- Offers Content -->
+  <section class="services" style="padding-top: 50px;">
+    <div class="container">
+
+      <!-- Main Offer -->
+      <div class="offer-header">
+        <h2>حزمة معسكر الأمن السيبراني</h2>
+        <p>أتقن فن الأمن السيبراني مع حزمة الدورات الشاملة لدينا.</p>
+
+        <div class="countdown" id="countdown">جاري التحميل...</div>
+
+        <div style="margin: 20px 0;">
+          <span class="original-price">$495</span>
+          <span class="price-tag">$69 فقط</span>
+        </div>
+
+        <p style="color: var(--primary-color); font-weight: bold;">خصم 89% - لفترة محدودة!</p>
+
+        <a href="#contact" class="btn" style="margin-top: 20px;">احصل على العرض الآن</a>
+      </div>
+
+      <!-- Course Cards -->
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>أساسيات الأمن السيبراني</h3>
+          <ul style="list-style: disc; margin-right: 20px; color: var(--text-muted);">
+            <li>أنظمة تشغيل Windows & Linux</li>
+            <li>أساسيات Python & Ruby</li>
+            <li>أساسيات الشبكات</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-user-secret"></i></div>
+          <h3>الاختراق المتقدم</h3>
+          <ul style="list-style: disc; margin-right: 20px; color: var(--text-muted);">
+            <li>الهندسة الاجتماعية</li>
+            <li>التشفير والتعمية</li>
+            <li>الفريق الأحمر مقابل الفريق الأزرق</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <h3>اختراق الويب</h3>
+          <ul style="list-style: disc; margin-right: 20px; color: var(--text-muted);">
+            <li>جمع المعلومات</li>
+            <li>فحص الثغرات الأمنية</li>
+            <li>الاستغلال وإعداد التقارير</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">
+        <p>&copy; 2026 Temo3Dev. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../TEAM/new.js.download"></script>
+  <script>
+    // Simple Countdown Timer
+    const countDownDate = new Date("Jun 13, 2026 00:00:00").getTime();
+
+    const x = setInterval(function () {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = days + "ي " + hours + "س "
+        + minutes + "د " + seconds + "ث ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "انتهى العرض";
+        document.getElementById("countdown").style.color = "red";
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>
